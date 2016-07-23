@@ -1,5 +1,30 @@
 <ion-view view-title="Edit Profile">
-  <ion-content>
-    <h1>Edit Profile</h1>
-  </ion-content>
+    <ion-content>
+        <div class="list">
+            <label class="item item-input item-floating-label">
+                <span class="input-label ion-android-contact"> Your Name</span>
+                <input type="text" placeholder="Your Name">
+            </label>
+            <label class="item item-input item-floating-label">
+                <span class="input-label ion-person-add"> Your Age</span>
+                <input type="number" placeholder="Your Age">
+            </label>
+            <label class="item item-floating-label">
+                <span class="input-label ion-male"> Your Gender</span>
+                <ion-list>
+                    <ion-radio ng-model="choice" ng-value="'A'"><i class="icon ion-male"></i> Male</ion-radio>
+                    <ion-radio ng-model="choice" ng-value="'B'"><i class="icon ion-female"></i> Female</ion-radio>
+                </ion-list>
+            </label>
+            <label class="item item-input item-floating-label">
+                <span class="input-label ion-man"> Your Height</span>
+                <input type="number" placeholder="Your Height">
+            </label>
+            <label class="item item-input item-floating-label">
+                <span class="input-label ion-lock-combination"> Your Weight</span>
+                <input type="number" placeholder="Your Weight">
+            </label>
+            <button class="button button-block icon-left ion-medkit button-positive">Submit</button>
+        </div>
+    </ion-content>
 </ion-view>
