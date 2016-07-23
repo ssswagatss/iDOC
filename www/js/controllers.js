@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('starter.controllers', ['starter.services'])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
@@ -46,8 +46,24 @@ angular.module('starter.controllers', [])
     $ionicSlideBoxDelegate.next();
   }
 })
-.controller('ProfileCtrl', function($scope) {
-  
+.controller('ProfileCtrl', function($scope,DataService) {
+  var vm=this;
+
+  vm.userData={};
+  init();
+  function init(){
+      vm.userData={};
+      //vm.userData= DataService.GetUserData();
+
+      vm.userData={
+            'Name':'Swagat Swain',
+            'Age':25,
+            'Sex':'Male',
+            'Height':123,
+            'Weight':85,
+            'BloodGroup':'O+ve'
+        }
+  }
 })
 
 .controller('HistoryCtrl', function($scope, $stateParams) {

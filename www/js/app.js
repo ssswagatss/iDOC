@@ -37,7 +37,8 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     views: {
       'menuContent': {
         templateUrl: 'templates/profile.html',
-        controller:'ProfileCtrl'
+        controller:'ProfileCtrl',
+        controllerAs:'vm'
       }
     }
   })
