@@ -1,1 +1,7 @@
 /* Empty. Add your own CSS if you like */
+
+    .button.button-block, .button.button.button-ful
+     {
+    margin-top: 3px;
+    margin-bottom: 10px;
+     }
