@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers'])
+angular.module('starter', ['ionic', 'starter.controllers','starter.services'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -39,8 +39,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         templateUrl: 'templates/profile.html',
         controller:'ProfileCtrl',
         controllerAs:'vm',
-         catch:false,
-        
+         cache:false
       }
     }
   })
@@ -51,9 +50,8 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         'menuContent': {
           templateUrl: 'templates/editProfile.html',
           controller:'EditCtrl',
-           catch:false,
-          controllerAs:'vm',
-           
+          cache:false,
+          controllerAs:'vm'           
         }
       }
     })
@@ -63,7 +61,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         'menuContent': {
           templateUrl: 'templates/result.html',
           controller:'HomeCtrl',
-           catch:false,
+           cache:false,
           controllerAs:'hc'
         }
       }
@@ -75,8 +73,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
           templateUrl: 'templates/home.html',
           controller: 'HomeCtrl',
            controllerAs:'hc',
-            catch:false,
-           
+            cache:false          
         }
       }
     })
@@ -87,11 +84,10 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       'menuContent': {
         templateUrl: 'templates/history.html',
         controller: 'HistoryCtrl',
-        catch:false,
-         
+        cache:false         
       }
     }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/home');
+  $urlRouterProvider.otherwise('/app/editProfile');
 });

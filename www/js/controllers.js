@@ -1,4 +1,4 @@
-angular.module('starter.controllers', ['starter.services'])
+angular.module('starter.controllers', [])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
@@ -42,6 +42,11 @@ angular.module('starter.controllers', ['starter.services'])
 })
 
 .controller('HomeCtrl', function($scope,$ionicSlideBoxDelegate,$location,DataService,$httpParamSerializerJQLike,$http) {
+  
+  
+  if (DataService.GetUserData()==null) {
+         $location.path("/app/editProfile");
+  }   
   var hc=this;
   hc.userInput={};
    hc.ShowMessage=true;
@@ -132,6 +137,12 @@ angular.module('starter.controllers', ['starter.services'])
 
 })
 .controller('ProfileCtrl', function($scope,DataService,$location) {
+  
+  if (DataService.GetUserData()==null) {
+         $location.path("/app/profile");
+  } 
+  
+  
   var vm=this;
   vm.userData={};
   vm.GoToEditProfile=function(){
@@ -153,6 +164,11 @@ angular.module('starter.controllers', ['starter.services'])
   }
 })
 .controller('EditCtrl', function($scope, DataService,$location) {
+  
+  if (DataService.GetUserData()==null) {
+         $location.path("/app/editProfile");
+  } 
+  
   var vm=this;
   init();
   function init(){
@@ -172,7 +188,10 @@ angular.module('starter.controllers', ['starter.services'])
   vm.EditProfile=function(userData){
     console.log(userData);
     DataService.SetUserData(userData.Name,userData.Age,userData.Gender,userData.Height,userData.Weight,userData.BloodGroup);
-    $location.path("app/profile");
+
+        $location.path('/app/profile');
+    // window.setTimeout(function(){
+    // },200);
   }
 })
 .controller('HistoryCtrl', function($scope, $stateParams) {
