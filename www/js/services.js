@@ -1,5 +1,5 @@
 angular.module('starter.services', [])
-.service('DataService',function () {
+.service('DataService',function ($http) {
     this.SetUserData=function(name,age,sex,height,weight,bloodGroup) {
         var userData={
             'Name':name,
@@ -21,5 +21,5 @@ angular.module('starter.services', [])
         }
     this.callApi=function (age,weight,Ntemp,Ctemp,gender) {
         
-    }
-})
+        }
+    })

@@ -41,9 +41,10 @@ angular.module('starter.controllers', ['starter.services'])
   };
 })
 
-.controller('HomeCtrl', function($scope,$ionicSlideBoxDelegate,$location,DataService) {
+.controller('HomeCtrl', function($scope,$ionicSlideBoxDelegate,$location,DataService,$httpParamSerializerJQLike,$http) {
   var hc=this;
   hc.userInput={};
+  hc.userData=DataService.GetUserData();
   hc.slideOne = function() 
   {
     $ionicSlideBoxDelegate.next();
@@ -69,29 +70,47 @@ angular.module('starter.controllers', ['starter.services'])
    }
    hc.slideFiveN=function()
    {
-    var userData=DataService.GetUserData();
-    var Ntemp=97;
-    var promise=DataService.callApi(userData.Age,userData.Weight,Ntemp,hc.userInput.temprature,userData.Gender);
-     promise.then(function (resp)
-         {
-            $location.path('/app/result');
-            hc.Result=resp;
-         });
-     $ionicSlideBoxDelegate.next();
+    
+    // var Ntemp=97;
+    // var promise=DataService.callApi( hc.userData.Age, hc.userData.Weight,Ntemp,hc.userInput.temprature, hc.userData.Gender);
+    //  promise.then(function (resp)
+    //      {
+    //         $location.path('/app/result');
+    //         hc.Result=resp;
+    //      });
+    //  $ionicSlideBoxDelegate.next();
    
    }
     hc.slideFive = function() 
    {
-    
     var userData=DataService.GetUserData();
+    
     var Ntemp=97;
-    var promise=DataService.callApi(userData.Age,userData.Weight,Ntemp,hc.userInput.temprature,userData.Gender);
-     promise.then(function (resp)
-         {
-           $location.path('/app/result');
-           hc.Result=resp;
-         });
-         $ionicSlideBoxDelegate.next();
+    var userinputData={ 'Age' : userData.Age,'Weight': userData.Weight,'NormalTemperature': Ntemp,'CurrentTemperature' :hc.userInput.temprature,'Gender':(userData.Gender=="Male")?"1":"0"};
+    $http({
+        url: 'http://idocsos.azurewebsites.net/api/Docs',
+        method: "POST",
+        data: $httpParamSerializerJQLike(userinputData), // Make sure to inject the service you choose to the controller
+        headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded' // Note the appropriate header
+        }        
+        })
+        .then(function(response) {
+                // success
+                console.log(response);
+        }, 
+        function(response) { // optional
+                // failed
+                console.log(response);
+        });
+
+    // var promise=DataService.callApi( hc.userData.Age, hc.userData.Weight,Ntemp,hc.userInput.temprature, hc.userData.Gender);
+    //  promise.then(function (resp)
+    //      {
+    //        $location.path('/app/result');
+    //        hc.Result=resp;
+    //      });
+    //      $ionicSlideBoxDelegate.next();
    }
    hc.slidesix=function()
    {
@@ -108,16 +127,16 @@ angular.module('starter.controllers', ['starter.services'])
   init();
   function init(){
       vm.userData={};
-      //vm.userData= DataService.GetUserData();
+      vm.userData= DataService.GetUserData();
 
-      vm.userData={
-            'Name':'Swagat Swain',
-            'Age':25,
-            'Gender':'Male',
-            'Height':123,
-            'Weight':85,
-            'BloodGroup':'O+ve'
-        }
+      // vm.userData={
+      //       'Name':'Swagat Swain',
+      //       'Age':25,
+      //       'Gender':'Male',
+      //       'Height':123,
+      //       'Weight':85,
+      //       'BloodGroup':'O+ve'
+      //   }
   }
 })
 .controller('EditCtrl', function($scope, DataService,$location) {
@@ -125,16 +144,16 @@ angular.module('starter.controllers', ['starter.services'])
   init();
   function init(){
       vm.userData={};
-      //vm.userData= DataService.GetUserData();
+      vm.userData= DataService.GetUserData();
 
-      vm.userData={
-            'Name':'Swagat Swain',
-            'Age':25,
-            'Gender':'Male',
-            'Height':123,
-            'Weight':85,
-            'BloodGroup':'O+ve'
-        }
+      // vm.userData={
+      //       'Name':'Swagat Swain',
+      //       'Age':25,
+      //       'Gender':'Male',
+      //       'Height':123,
+      //       'Weight':85,
+      //       'BloodGroup':'O+ve'
+      //   }
   }
 
   vm.EditProfile=function(userData){

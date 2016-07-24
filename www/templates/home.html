@@ -1,41 +1,49 @@
-<ion-view view-title="Home">
+<ion-view view-title="Home" style="background: #1F1C2C;background: -webkit-linear-gradient(to bottom, #1F1C2C , #928DAB);
+background: linear-gradient(to bottom, #1F1C2C , #928DAB); ">
  <ion-content>
     <ion-slide-box show-pager="false">
     <ion-slide>
-      <div class="card text-center" style="margin-top:50px;">
-          <div class="item item-text-wrap">
-            <h2>Hey Pravat !!</h2>
+      <div class="card">
+        <div class="item item-divider">
+<h2>Hi {{hc.userData.Name}} !!</h2>
+        </div>
+          <div class="item item-text-wrap text-center">            
             <h1>How are you feeling today?</h1>
           </div>
+          <div class="item item-divider">
           <div class="button-bar">
             <a class="button button-balanced button-small" ng-click="hc.slideOneY()" > Good <i class="ion ion-android-happy" style="font-size:12px;"></i></a>
             <a class="button button-assertive button-small" ng-click="hc.slideOne()" > Not So good!</a>
           </div>
-         
+          </div>
       </div>
     </ion-slide>
     <ion-slide>
-      <div class="card text-center" style="margin-top:50px;">
+      <div class="card text-center">
           <div class="item item-text-wrap">
             <h1>Are you feeling feverish ?</h1>
           </div>
+          <div class="item item-divider">
           <div class="button-bar">
             <a class="button button-balanced button-small"  > No </a>
             <a class="button button-assertive button-small" ng-click="hc.slideTwo()" > Yes </a>          
-          </div> 
+          </div> </div>
       </div>
     </ion-slide>
      <ion-slide>
-      <div class="card text-center" style="margin-top:50px;">
+      <div class="card text-center">
           <div class="item item-text-wrap">
             <h1> What is your body temprature ?</h1>
           </div>
-          <div class="button-bar">
-            <label class="item item-input ">
-            <input type="number" placeholder="Your current Temprature"  ng-model="hc.userInput.temprature">
-          </label>
-            <a class="button button-assertive button-small" ng-click="hc.slideThree()" > Next </a>          
-          </div> 
+          <div class="item item-divider">
+            <div class="item item-input-inset">
+    <label class="item-input-wrapper">
+      <input type="number" placeholder="Your current Temprature"  ng-model="hc.userInput.temprature">
+    </label>
+    <a class="button button-assertive button-small" ng-click="hc.slideThree()" > Next </a>
+  </div>
+             
+          </div>
       </div>
     </ion-slide>
      <ion-slide>
@@ -43,22 +51,23 @@
           <div class="item item-text-wrap">
             <h1>Do you have muscle Pain ?</h1>
           </div>
+          <div class="item item-divider">
           <div class="button-bar">
             <a class="button button-balanced button-small"  > No </a>
             <a class="button button-assertive button-small" ng-click="hc.slideFour()" > Yes </a>          
-          </div> 
+          </div> </div>
       </div>
     </ion-slide>
      <ion-slide>
       <div class="card text-center" style="margin-top:50px;">
-          <div class="item item-text-wrap">
-            <h2>Hey Pravat !!</h2>
-            <h1>Vomiting ?</h1>
+          <div class="item item-text-wrap">            
+            <h1>Is it Nausea or Vomiting?</h1>
           </div>
+          <div class="item item-divider">
           <div class="button-bar">
             <a class="button button-balanced button-small" ng-click="hc.slideFiveN()" > No  </a>
             <a class="button button-assertive button-small" ng-click="hc.slideFive()" > Yes </a>          
-          </div> 
+          </div> </div>
       </div>
     </ion-slide>
       <ion-slide>
@@ -67,13 +76,21 @@
             <h2>Your Result</h2>
             <h1>{{hc.Result}}</h1>
           </div>
+          <div class="item item-divider">
           <div class="button-bar">
             <a class="button button-balanced button-small" ng-click="hc.slidesix()" > Test again  </a>
                       
-          </div> 
+          </div> </div>
       </div>
     </ion-slide>
-     
-  </ion-slide-box>
+     <ion-slide>
+      <div class="card text-center" style="margin-top:50px;">
+          <div class="item item-text-wrap">
+            <h1> Opps you are not having any problem.</h1>
+          </div>          
+      </div>
+    </ion-slide>
+  </ion-slide-box>  
+  </div>
  </ion-content>
 </ion-view>
