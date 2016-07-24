@@ -48,7 +48,8 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       views: {
         'menuContent': {
           templateUrl: 'templates/editProfile.html',
-          controller:'ProfileCtrl'
+          controller:'EditCtrl',
+          controllerAs:'vm'
         }
       }
     })

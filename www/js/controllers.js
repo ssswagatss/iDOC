@@ -46,10 +46,12 @@ angular.module('starter.controllers', ['starter.services'])
     $ionicSlideBoxDelegate.next();
   }
 })
-.controller('ProfileCtrl', function($scope,DataService) {
+.controller('ProfileCtrl', function($scope,DataService,$location) {
   var vm=this;
-
   vm.userData={};
+  vm.GoToEditProfile=function(){
+    $location.path('/app/editProfile');
+  }
   init();
   function init(){
       vm.userData={};
@@ -58,13 +60,35 @@ angular.module('starter.controllers', ['starter.services'])
       vm.userData={
             'Name':'Swagat Swain',
             'Age':25,
-            'Sex':'Male',
+            'Gender':'Male',
             'Height':123,
             'Weight':85,
             'BloodGroup':'O+ve'
         }
   }
 })
+.controller('EditCtrl', function($scope, DataService,$location) {
+  var vm=this;
+  init();
+  function init(){
+      vm.userData={};
+      //vm.userData= DataService.GetUserData();
 
+      vm.userData={
+            'Name':'Swagat Swain',
+            'Age':25,
+            'Gender':'Male',
+            'Height':123,
+            'Weight':85,
+            'BloodGroup':'O+ve'
+        }
+  }
+
+  vm.EditProfile=function(userData){
+    console.log(userData);
+    DataService.SetUserData(userData.Name,userData.Age,userData.Gender,userData.Height,userData.Weight,userData.BloodGroup);
+    $location.path("app/profile");
+  }
+})
 .controller('HistoryCtrl', function($scope, $stateParams) {
 });

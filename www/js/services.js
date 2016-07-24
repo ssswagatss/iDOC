@@ -4,7 +4,7 @@ angular.module('starter.services', [])
         var userData={
             'Name':name,
             'Age':age,
-            'Sex':sex,
+            'Gender':sex,
             'Height':height,
             'Weight':weight,
             'BloodGroup':bloodGroup

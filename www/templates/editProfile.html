@@ -1,30 +1,32 @@
 <ion-view view-title="Edit Profile">
     <ion-content>
-        <div class="list">
+       <form ng-submit="vm.EditProfile(vm.userData)" name="editForm">
+           <div class="list">
             <label class="item item-input item-floating-label">
                 <span class="input-label ion-android-contact"> Your Name</span>
-                <input type="text" placeholder="Your Name">
+                <input type="text" placeholder="Your Name" name="name" ng-model="vm.userData.Name" >
             </label>
             <label class="item item-input item-floating-label">
                 <span class="input-label ion-person-add"> Your Age</span>
-                <input type="number" placeholder="Your Age">
+                <input type="number" placeholder="Your Age" name="age" ng-model="vm.userData.Age">
             </label>
             <label class="item item-floating-label">
                 <span class="input-label ion-male"> Your Gender</span>
                 <ion-list>
-                    <ion-radio ng-model="choice" ng-value="'A'"><i class="icon ion-male"></i> Male</ion-radio>
-                    <ion-radio ng-model="choice" ng-value="'B'"><i class="icon ion-female"></i> Female</ion-radio>
+                    <ion-radio ng-model="vm.userData.Gender" ng-value="'Male'"><i class="icon ion-male"></i> Male</ion-radio>
+                    <ion-radio ng-model="vm.userData.Gender" ng-value="'Female'"><i class="icon ion-female"></i> Female</ion-radio>
                 </ion-list>
             </label>
             <label class="item item-input item-floating-label">
                 <span class="input-label ion-man"> Your Height</span>
-                <input type="number" placeholder="Your Height">
+                <input type="number" placeholder="Your Height" ng-model="vm.userData.Height">
             </label>
             <label class="item item-input item-floating-label">
                 <span class="input-label ion-lock-combination"> Your Weight</span>
-                <input type="number" placeholder="Your Weight">
+                <input type="number" placeholder="Your Weight" ng-model="vm.userData.Weight">
             </label>
-            <button class="button button-block icon-left ion-medkit button-positive">Submit</button>
+            <button type="submit" class="button button-block icon-left ion-medkit button-positive">Submit</button>
         </div>
+       </form>
     </ion-content>
 </ion-view>
