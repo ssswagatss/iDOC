@@ -77,11 +77,12 @@ angular.module('starter.controllers', ['starter.services'])
             $location.path('/app/result');
             hc.Result=resp;
          });
+     $ionicSlideBoxDelegate.next();
    
    }
     hc.slideFive = function() 
    {
-    $ionicSlideBoxDelegate.next();
+    
     var userData=DataService.GetUserData();
     var Ntemp=97;
     var promise=DataService.callApi(userData.Age,userData.Weight,Ntemp,hc.userInput.temprature,userData.Gender);
@@ -90,6 +91,11 @@ angular.module('starter.controllers', ['starter.services'])
            $location.path('/app/result');
            hc.Result=resp;
          });
+         $ionicSlideBoxDelegate.next();
+   }
+   hc.slidesix=function()
+   {
+     $location.path('/app/home');
    }
 
 })

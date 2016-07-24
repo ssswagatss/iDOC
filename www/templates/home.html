@@ -8,8 +8,8 @@
             <h1>How are you feeling today?</h1>
           </div>
           <div class="button-bar">
-            <a class="button button-dark button-small" ng-click="hc.slideOneY()" > Good ?</a>
-            <a class="button button-dark button-small" ng-click="hc.slideOne()" > dizzy ?</a>
+            <a class="button button-balanced button-small" ng-click="hc.slideOneY()" > Good <i class="ion ion-android-happy" style="font-size:12px;"></i></a>
+            <a class="button button-assertive button-small" ng-click="hc.slideOne()" > Not So good!</a>
           </div>
          
       </div>
@@ -20,8 +20,8 @@
             <h1>Are you feeling feverish ?</h1>
           </div>
           <div class="button-bar">
-            <a class="button button-dark button-small"  > No ?</a>
-            <a class="button button-dark button-small" ng-click="hc.slideTwo()" > Yes ?</a>          
+            <a class="button button-balanced button-small"  > No </a>
+            <a class="button button-assertive button-small" ng-click="hc.slideTwo()" > Yes </a>          
           </div> 
       </div>
     </ion-slide>
@@ -34,7 +34,7 @@
             <label class="item item-input ">
             <input type="number" placeholder="Your current Temprature"  ng-model="hc.userInput.temprature">
           </label>
-            <a class="button button-dark button-small" ng-click="hc.slideThree()" > Next </a>          
+            <a class="button button-assertive button-small" ng-click="hc.slideThree()" > Next </a>          
           </div> 
       </div>
     </ion-slide>
@@ -44,8 +44,8 @@
             <h1>Do you have muscle Pain ?</h1>
           </div>
           <div class="button-bar">
-            <a class="button button-dark button-small"  > No ?</a>
-            <a class="button button-dark button-small" ng-click="hc.slideFour()" > Yes ?</a>          
+            <a class="button button-balanced button-small"  > No </a>
+            <a class="button button-assertive button-small" ng-click="hc.slideFour()" > Yes </a>          
           </div> 
       </div>
     </ion-slide>
@@ -56,8 +56,20 @@
             <h1>Vomiting ?</h1>
           </div>
           <div class="button-bar">
-            <a class="button button-dark button-small"  > No  ?</a>
-            <a class="button button-dark button-small" ng-click="hc.slideFive()" > Yes ?</a>          
+            <a class="button button-balanced button-small" ng-click="hc.slideFiveN()" > No  </a>
+            <a class="button button-assertive button-small" ng-click="hc.slideFive()" > Yes </a>          
+          </div> 
+      </div>
+    </ion-slide>
+      <ion-slide>
+      <div class="card text-center" style="margin-top:50px;">
+          <div class="item item-text-wrap">
+            <h2>Your Result</h2>
+            <h1>{{hc.Result}}</h1>
+          </div>
+          <div class="button-bar">
+            <a class="button button-balanced button-small" ng-click="hc.slidesix()" > Test again  </a>
+                      
           </div> 
       </div>
     </ion-slide>
