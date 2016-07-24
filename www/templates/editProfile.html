@@ -26,8 +26,33 @@ background: linear-gradient(to bottom, #1F1C2C , #928DAB);">
                 <span class="input-label ion-lock-combination"> Your Weight</span>
                 <input type="number" placeholder="Your Weight" ng-model="vm.userData.Weight">
             </label>
+            <label class="item item-input item-floating-label">
+                <span class="input-label ion-waterdrop"> Your Blood Group</span>
+                <input type="text" placeholder="Your Blood Group" ng-model="vm.userData.BloodGroup">
+            </label>
             <button type="submit" class="button button-block icon-left ion-medkit button-positive">Submit</button>
         </div>
        </form>
+       <style>
+           .input-label {
+                display: table;
+                padding: 7px 10px 7px 0px;
+                max-width: 200px;
+                width: 35%;
+                color: #fff;
+                font-size: 16px;
+            }
+                    textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
+            display: block;
+            padding-top: 2px;
+            padding-left: 0;
+            height: 34px;
+            color: #d0caca;
+            vertical-align: middle;
+            font-size: 14px;
+            line-height: 16px;
+        }
+
+           </style>
     </ion-content>
 </ion-view>

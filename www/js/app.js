@@ -22,7 +22,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider,$ionicConfigProvider) {
   $stateProvider
 
     .state('app', {
@@ -38,7 +38,9 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       'menuContent': {
         templateUrl: 'templates/profile.html',
         controller:'ProfileCtrl',
-        controllerAs:'vm'
+        controllerAs:'vm',
+         catch:false,
+        
       }
     }
   })
@@ -49,7 +51,9 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         'menuContent': {
           templateUrl: 'templates/editProfile.html',
           controller:'EditCtrl',
-          controllerAs:'vm'
+           catch:false,
+          controllerAs:'vm',
+           
         }
       }
     })
@@ -59,6 +63,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         'menuContent': {
           templateUrl: 'templates/result.html',
           controller:'HomeCtrl',
+           catch:false,
           controllerAs:'hc'
         }
       }
@@ -69,7 +74,9 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         'menuContent': {
           templateUrl: 'templates/home.html',
           controller: 'HomeCtrl',
-           controllerAs:'hc'
+           controllerAs:'hc',
+            catch:false,
+           
         }
       }
     })
@@ -79,7 +86,9 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     views: {
       'menuContent': {
         templateUrl: 'templates/history.html',
-        controller: 'HistoryCtrl'
+        controller: 'HistoryCtrl',
+        catch:false,
+         
       }
     }
   });
