@@ -42,9 +42,9 @@
     <splash src="resources\android\splash\drawable-port-xxxhdpi-screen.png" density="port-xxxhdpi"/>
   </platform>
   <icon src="resources\android\icon\drawable-xhdpi-icon.png"/>
-  <plugin name="cordova-plugin-device" source="git" spec="~1" />
-  <plugin name="cordova-plugin-console" source="git" spec="~1" />
-  <plugin name="cordova-plugin-whitelist" source="git" spec="~1" />
-  <plugin name="cordova-plugin-splashscreen" source="git" spec="~1" />
-  <plugin name="com.ionic.keyboard" source="git" spec="~1" />
+  <plugin spec="https://github.com/apache/cordova-plugin-device.git" source="git" spec="~1" />
+  <plugin spec="https://github.com/apache/cordova-plugin-console.git" source="git" spec="~1" />
+  <plugin name="https://github.com/apache/cordova-plugin-whitelist.git" source="git" spec="~1" />
+  <plugin name="https://github.com/apache/cordova-plugin-splashscreen.git" source="git" spec="~1" />
+  <plugin name="https://github.com/driftyco/ionic-plugin-keyboard.git" source="git" spec="~1" />
 </widget>
