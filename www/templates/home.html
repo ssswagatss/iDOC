@@ -5,7 +5,7 @@ background: linear-gradient(to bottom, #1F1C2C , #928DAB); ">
     <ion-slide>
       <div class="card">
         <div class="item item-divider">
-<h2>Hi {{hc.userData.Name}} !!</h2>
+          <h2>Hi {{hc.userData.Name}} !!</h2>
         </div>
           <div class="item item-text-wrap text-center">            
             <h1>How are you feeling today?</h1>
@@ -25,7 +25,7 @@ background: linear-gradient(to bottom, #1F1C2C , #928DAB); ">
           </div>
           <div class="item item-divider">
           <div class="button-bar">
-            <a class="button button-balanced button-small"  > No </a>
+            <a class="button button-balanced button-small" ng-click="hc.slideTwoN()" > No </a>
             <a class="button button-assertive button-small" ng-click="hc.slideTwo()" > Yes </a>          
           </div> </div>
       </div>
@@ -33,21 +33,22 @@ background: linear-gradient(to bottom, #1F1C2C , #928DAB); ">
      <ion-slide>
       <div class="card text-center">
           <div class="item item-text-wrap">
-            <h1> What is your body temprature ?</h1>
+            <h1> What is your body temperature ?</h1>
           </div>
           <div class="item item-divider">
             <div class="item item-input-inset">
     <label class="item-input-wrapper">
-      <input type="number" placeholder="Your current Temprature"  ng-model="hc.userInput.temprature">
+      <input type="number" ng-keyup="hc.removemsg()" placeholder="Your current Temperature"  ng-model="hc.userInput.temprature">      
     </label>
     <a class="button button-assertive button-small" ng-click="hc.slideThree()" > Next </a>
   </div>
              
           </div>
+          <span class="item"  style="color:red;" ng-hide="hc.ShowMessage">Please enter your body temperature.</span>
       </div>
     </ion-slide>
      <ion-slide>
-      <div class="card text-center" style="margin-top:50px;">
+      <div class="card text-center" >
           <div class="item item-text-wrap">
             <h1>Do you have muscle Pain ?</h1>
           </div>
@@ -59,7 +60,7 @@ background: linear-gradient(to bottom, #1F1C2C , #928DAB); ">
       </div>
     </ion-slide>
      <ion-slide>
-      <div class="card text-center" style="margin-top:50px;">
+      <div class="card text-center">
           <div class="item item-text-wrap">            
             <h1>Is it Nausea or Vomiting?</h1>
           </div>
@@ -71,7 +72,7 @@ background: linear-gradient(to bottom, #1F1C2C , #928DAB); ">
       </div>
     </ion-slide>
       <ion-slide>
-      <div class="card text-center" style="margin-top:50px;">
+      <div class="card text-center">
           <div class="item item-text-wrap">
             <h2>Your Result</h2>
             <h1>{{hc.Result}}</h1>
@@ -84,10 +85,18 @@ background: linear-gradient(to bottom, #1F1C2C , #928DAB); ">
       </div>
     </ion-slide>
      <ion-slide>
-      <div class="card text-center" style="margin-top:50px;">
+      <div class="card text-center">
+        <div class="item item-divider">
+        <h2>Hi {{hc.userData.Name}} !!</h2>
+        </div>
           <div class="item item-text-wrap">
             <h1> Opps you are not having any problem.</h1>
-          </div>          
+          </div> 
+          <div class="item item-divider">
+          <div class="button-bar">
+            <a class="button button-balanced button-small" ng-click="hc.slidesix()" > Test again  </a>
+                      
+          </div> </div>         
       </div>
     </ion-slide>
   </ion-slide-box>  

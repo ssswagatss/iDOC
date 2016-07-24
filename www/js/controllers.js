@@ -44,6 +44,7 @@ angular.module('starter.controllers', ['starter.services'])
 .controller('HomeCtrl', function($scope,$ionicSlideBoxDelegate,$location,DataService,$httpParamSerializerJQLike,$http) {
   var hc=this;
   hc.userInput={};
+   hc.ShowMessage=true;
   hc.userData=DataService.GetUserData();
   hc.slideOne = function() 
   {
@@ -52,16 +53,32 @@ angular.module('starter.controllers', ['starter.services'])
   }
   hc.slideOneY =function()
   {
-     $location.path('/app/profile');
+     $ionicSlideBoxDelegate.slide(6, [5]);
   }
    hc.slideTwo = function() 
    {
      $ionicSlideBoxDelegate.next();
       hc.userInput.hot=true;
    }
+   hc.slideTwoN=function () {
+      $ionicSlideBoxDelegate.slide(5, [4]);
+    hc.Result="May be you have other diseases! I am sorry, I need a few more updates before I can tell you about other diseases.";
+   }
     hc.slideThree = function() 
    {
-    $ionicSlideBoxDelegate.next();
+     if(hc.userInput.temprature==null)
+     {
+       hc.ShowMessage=false;
+     }
+     else
+     {
+        hc.ShowMessage=true;
+       $ionicSlideBoxDelegate.next();
+     }
+    
+   }
+   hc.removemsg=function () {
+     hc.ShowMessage=true;
    }
     hc.slideFour = function() 
    {
@@ -70,15 +87,8 @@ angular.module('starter.controllers', ['starter.services'])
    }
    hc.slideFiveN=function()
    {
-    
-    // var Ntemp=97;
-    // var promise=DataService.callApi( hc.userData.Age, hc.userData.Weight,Ntemp,hc.userInput.temprature, hc.userData.Gender);
-    //  promise.then(function (resp)
-    //      {
-    //         $location.path('/app/result');
-    //         hc.Result=resp;
-    //      });
-    //  $ionicSlideBoxDelegate.next();
+    $ionicSlideBoxDelegate.slide(5, [4]);
+    hc.Result="You most likely have feaver";
    
    }
     hc.slideFive = function() 
@@ -98,9 +108,12 @@ angular.module('starter.controllers', ['starter.services'])
         .then(function(response) {
                 // success
                 console.log(response);
+            $ionicSlideBoxDelegate.slide(5, [4]);
+            hc.Result=response.data.Message;     
         }, 
         function(response) { // optional
-                // failed
+               $ionicSlideBoxDelegate.slide(5, [4]);
+                hc.Result="Oops! Something went wrong."
                 console.log(response);
         });
 
@@ -114,7 +127,7 @@ angular.module('starter.controllers', ['starter.services'])
    }
    hc.slidesix=function()
    {
-     $location.path('/app/home');
+     $ionicSlideBoxDelegate.slide(0, [4]);
    }
 
 })
