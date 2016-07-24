@@ -45,7 +45,7 @@ angular.module('starter.controllers', [])
   
   
   if (DataService.GetUserData()==null) {
-         $location.path("/app/profile");
+         $location.path("/app/editProfile");
   }   
   var hc=this;
   hc.userInput={};
@@ -153,7 +153,7 @@ angular.module('starter.controllers', [])
 .controller('EditCtrl', function($scope, DataService,$location) {
   
   if (DataService.GetUserData()==null) {
-         $location.path("/app/profile");
+         $location.path("/app/editProfile");
   } 
   
   var vm=this;
