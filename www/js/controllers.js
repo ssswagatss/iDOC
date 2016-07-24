@@ -41,10 +41,57 @@ angular.module('starter.controllers', ['starter.services'])
   };
 })
 
-.controller('HomeCtrl', function($scope,$ionicSlideBoxDelegate) {
-  $scope.nextSlide = function() {
+.controller('HomeCtrl', function($scope,$ionicSlideBoxDelegate,$location,DataService) {
+  var hc=this;
+  hc.userInput={};
+  hc.slideOne = function() 
+  {
     $ionicSlideBoxDelegate.next();
+
   }
+  hc.slideOneY =function()
+  {
+     $location.path('/app/profile');
+  }
+   hc.slideTwo = function() 
+   {
+     $ionicSlideBoxDelegate.next();
+      hc.userInput.hot=true;
+   }
+    hc.slideThree = function() 
+   {
+    $ionicSlideBoxDelegate.next();
+   }
+    hc.slideFour = function() 
+   {
+    $ionicSlideBoxDelegate.next();
+    hc.userInput.pain=true;
+   }
+   hc.slideFiveN=function()
+   {
+    var userData=DataService.GetUserData();
+    var Ntemp=97;
+    var promise=DataService.callApi(userData.Age,userData.Weight,Ntemp,hc.userInput.temprature,userData.Gender);
+     promise.then(function (resp)
+         {
+            $location.path('/app/result');
+            hc.Result=resp;
+         });
+   
+   }
+    hc.slideFive = function() 
+   {
+    $ionicSlideBoxDelegate.next();
+    var userData=DataService.GetUserData();
+    var Ntemp=97;
+    var promise=DataService.callApi(userData.Age,userData.Weight,Ntemp,hc.userInput.temprature,userData.Gender);
+     promise.then(function (resp)
+         {
+           $location.path('/app/result');
+           hc.Result=resp;
+         });
+   }
+
 })
 .controller('ProfileCtrl', function($scope,DataService,$location) {
   var vm=this;

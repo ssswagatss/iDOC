@@ -53,12 +53,23 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         }
       }
     })
+     .state('app.result', {
+      url: '/result',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/result.html',
+          controller:'HomeCtrl',
+          controllerAs:'hc'
+        }
+      }
+    })
     .state('app.home', {
       url: '/home',
       views: {
         'menuContent': {
           templateUrl: 'templates/home.html',
-          controller: 'HomeCtrl'
+          controller: 'HomeCtrl',
+           controllerAs:'hc'
         }
       }
     })

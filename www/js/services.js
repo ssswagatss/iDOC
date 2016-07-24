@@ -19,4 +19,7 @@ angular.module('starter.services', [])
     this.RemoveUserData = function () {
             localStorage.removeItem("userData");
         }
+    this.callApi=function (age,weight,Ntemp,Ctemp,gender) {
+        
+    }
 })
