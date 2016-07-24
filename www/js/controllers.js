@@ -93,7 +93,7 @@ angular.module('starter.controllers', [])
    hc.slideFiveN=function()
    {
     $ionicSlideBoxDelegate.slide(5, [4]);
-    hc.Result="You most likely have feaver";
+    hc.Result="You most likely have fever";
    
    }
     hc.slideFive = function() 
